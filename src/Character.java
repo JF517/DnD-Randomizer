@@ -1,4 +1,9 @@
 
+/**
+ * Class: Character
+ * @author J Freyne
+ * Purpose: Encapsulates the functionality of creating, updating, and displaying a D&D player character.
+ */
 public class Character {
 
 	private ClassHandler setClass;
@@ -9,6 +14,9 @@ public class Character {
 	private RaceHandler raceHandler = new RaceHandler();
 	private String race;
 
+	/**
+	 * Creates a new Character with random values for race, class, stats, and level.
+	 */
 	public Character() {
 
 		this.raceHandler = new RaceHandler();
@@ -27,6 +35,9 @@ public class Character {
 
 	}
 
+	/**
+	 * Prints the character's level, race, class, and stats to standard output.
+	 */
 	public void displayChar() {
 		System.out.println("Lvl " + level + " " + race + " " + subClass + " " + bigClass);
 		System.out.println();
