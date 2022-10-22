@@ -41,7 +41,7 @@ public class ClassHandler {
 			return allSubs[randIndex];
 		}
 	}
-
+        # used for D&D Random SubClasses
 	public void setSubClassLevel(int intake) {
 		this.subClassLevel = intake;
 	}
