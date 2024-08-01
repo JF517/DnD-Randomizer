@@ -9,6 +9,8 @@ public class ClassHandler {
 	private int subClassLevel;
 	private LevelHandler levelHandler;
 	private int atLevel;
+	private int bigClassIndex;
+	private int subClassIndex;
 
 	public ClassHandler() {
 		this.bigClass = "";
@@ -17,6 +19,8 @@ public class ClassHandler {
 		this.levelHandler = new LevelHandler();
 		this.atLevel = levelHandler.initStartLevel();
 		this.subClassLevel = 0;
+		this.bigClassIndex = 0;
+		this.subClassIndex = 0;
 	}
 
 	public String initBigClass() {
@@ -27,6 +31,7 @@ public class ClassHandler {
 		this.subClassLevel = (Integer.parseInt(cl));
 		String output = allClasses[randIndex].substring(1);
 		this.bigClass = output;
+		this.bigClassIndex = randIndex;
 		return output;
 
 	}
@@ -38,6 +43,7 @@ public class ClassHandler {
 			String inputFile ="/Classes/" + bigClass + "/subClass";
 			String[] allSubs = reader.runReadFile(inputFile).split("-");
 			int randIndex = rand.nextInt(allSubs.length);
+			this.subClassIndex = randIndex;
 			return allSubs[randIndex];
 		}
 	}
@@ -54,4 +60,15 @@ public class ClassHandler {
 		return levelHandler.initStartLevel();
 	}
 
+	public int getBigClassIndex(){
+		return this.bigClassIndex;
+	}
+
+	public int getSubClassIndex() {
+		return this.subClassIndex;
+	}
+	
+	public int getAtLevel(){
+		return this.atLevel;
+	}
 }

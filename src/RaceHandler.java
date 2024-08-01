@@ -9,6 +9,8 @@ public class RaceHandler {
 	private String raceData;
 	private String race;
 	private String[] statMods;
+	private int raceIndex;
+	private int subRaceIndex;
 
 	public RaceHandler() {
 
@@ -18,6 +20,8 @@ public class RaceHandler {
 		this.subRaces = new ArrayList<String>();
 		this.rand = new Random();
 		this.reader = new Reader();
+		this.raceIndex  = 0;
+		this.subRaceIndex = 0;
 
 	}
 
@@ -26,15 +30,25 @@ public class RaceHandler {
 		String[] allRaces = reader.runReadFile("allRaces").split("-");
 		int randIndex = rand.nextInt(allRaces.length);
 		this.race = allRaces[randIndex];
+		this.raceIndex = randIndex;
 		// parseRaceData();
 		return race;
 	}
 
 	public String initSubRace() {
-		String subRace = " ";
+		String subRace = "";
 		int randIndex = rand.nextInt(subRaces.size());
 		subRace = subRaces.get(randIndex);
+		this.subRaceIndex = randIndex;
 		return subRace;
+	}
+
+	public int getRaceIndex() {
+		return this.raceIndex;
+	}
+
+	public int getSubRaceIndex() {
+		return this.subRaceIndex;
 	}
 
 //	public void parseRaceData() {

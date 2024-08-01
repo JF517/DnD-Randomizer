@@ -13,12 +13,14 @@ public class StatHandler {
 	int cha;
 	private Random rand;
 	private Reader reader;
+	private String statCode;
 
 	public StatHandler() {
 
 		this.statList = new ArrayList<Integer>();
 		this.rand = new Random();
 		this.reader = new Reader();
+		this.statCode = " ";
 
 	}
 
@@ -49,12 +51,26 @@ public class StatHandler {
 		return topSeven;
 	}
 
+	public String getStats(){
+		String stats = "";
+		for (int i = 0; i < 6; i++ ){
+			if (i == 0){
+				stats = stats + this.statList.get(i);
+			}
+			else{
+			stats = stats + ":" + this.statList.get(i);
+			}
+		}
+		this.statCode = stats;
+		return stats;
+	}
+
 	public void setAll(ArrayList<Integer> allStats) {
 		setStr(allStats.get(0));
 		setDex(allStats.get(1));
 		setCon(allStats.get(2));
-		setWis(allStats.get(3));
-		setIntel(allStats.get(4));
+		setIntel(allStats.get(3));
+		setWis(allStats.get(4));
 		setCha(allStats.get(5));
 	}
 
@@ -62,8 +78,8 @@ public class StatHandler {
 		this.str += toAdd[0];
 		this.dex += toAdd[1];
 		this.con += toAdd[2];
-		this.wis += toAdd[3];
-		this.intel += toAdd[4];
+		this.intel += toAdd[3];
+		this.wis += toAdd[4];
 		this.cha += toAdd[5];
 	}
 
@@ -71,8 +87,8 @@ public class StatHandler {
 		setStr(0);
 		setDex(0);
 		setCon(0);
-		setWis(0);
 		setIntel(0);
+		setWis(0);
 		setCha(0);
 	}
 
